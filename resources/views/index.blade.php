@@ -13,7 +13,9 @@
 			</ul>
 		</div>
 	</header>
-	<div style="width: 100%; height: 400px; background-color: orange;"></div>
+	<div style="width: 100%; height: 400px; background-color: orange;">
+		
+	</div>
     <canvas id="myChart" width="500" height="100"></canvas>
 </body>
     <script src="/js/app.js"></script>

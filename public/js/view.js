@@ -34,22 +34,23 @@ function createChart(array, targetid) {
   var data = [];
   //for each row returns data
   array.forEach(function(value) {
-
+    //take the position of where
+    console.log(value);
     var pos = labels.indexOf(value.nombre);
-    var count = parseInt(value.count);
-
     if (pos == -1) {
-
       labels.push(value.nombre);
+      // pos = labels.indexOf(value.nombre);
+    }
+    //insert name on values array
+    var count = parseInt(value.count);
+    if (value.is_grave == 1) {
+      //console.log('entered');
+      count = count*3;
+    }
+    if (pos == -1) {
       data.push(count);
-
-      if (value.is_grave == 1) {
-
-          count = count*3;
-      }
-      
-    } else {
-      
+    } 
+    else {
       data[pos] = data[pos]+count;
     }
     
