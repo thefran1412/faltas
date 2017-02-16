@@ -14,21 +14,54 @@ $( document ).ready(function() {
             console.log("ok");
           },
           success:function(data) {
-              setData(data);
+              var array = setData(data);
+              createChart(array, 'myChart');
           }
     });
 });
 
 
 console.log('printed from view.js');
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
+
+
+function setData(data) {
+  return JSON.parse(data);
+}
+
+function createChart(array, targetid) {
+  
+  var labels = [];
+  var data = [];
+  //for each row returns data
+  array.forEach(function(value) {
+
+    var pos = labels.indexOf(value.nombre);
+    var count = parseInt(value.count);
+
+    if (pos == -1) {
+
+      labels.push(value.nombre);
+      data.push(count);
+
+      if (value.is_grave == 1) {
+
+          count = count*3;
+      }
+      
+    } else {
+      
+      data[pos] = data[pos]+count;
+    }
+    
+  });
+  var ctx = document.getElementById(targetid);
+  var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Nico", "Adrian", "Carlos", "Ignasi", "Fran"],
+        labels: labels,
         datasets: [{
-            label: '# of Votes',
-            data: [4, 2, 1, 0, 0],
+            label: 'Faltas totales',
+            data: data,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -47,15 +80,9 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
-    	responsive: true,
-    	maintainAspectRatio: true,
-    	fullWidth: true
+      responsive: true,
+      maintainAspectRatio: true,
+      fullWidth: true
     }
 });
-
-function setData(data) {
-  console.log(JSON.parse(data));
-  $(data).each(function(index) {
-    console.log( index + ": " + $( this ).text() );
-  });
 }
