@@ -1,0 +1,72 @@
+h1{
+	margin: 0;
+}
+.card{
+	width: calc(33% - 20px);
+	height: 338px;
+	border: solid #d3e0e9 1px;
+	float: left;
+	margin: 11px;
+	text-align: center;
+	padding: 10px;
+}
+.card h2{
+
+}
+.wrap{
+	margin: 0 auto;
+	width: 90%;
+}
+.faltas{
+	border: solid #d3e0e9 1px;
+	width: 87%;
+	float: left;
+	height: 100px;
+	border-radius: 4px;
+	align-content: center;
+	margin:10px;
+	display: table;
+}
+
+.faltas h3{
+	display: table-cell;
+    vertical-align: middle;
+    font-size: 33px;
+}
+
+.vertical{
+	/*border: solid #d3e0e9 1px;*/
+	width: 50%;
+	float: left;
+}
+
+.vertical button{
+	border: solid #d3e0e9 1px;
+	padding: 2px 20px;
+	width: 88%;
+	border-radius: 4px;
+	align-content: center;
+	margin: 8px 10px 10px 10px;
+}
+table{
+    width: 90%;
+	margin: 0 auto;
+    margin-top: 50px;
+}
+
+table, th, td{
+	border: solid #d3e0e9 1px;
+	height: 50px;
+	text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+    .card{
+		width: calc(50% - 22px);
+	}
+}
+@media screen and (max-width: 620px) {
+    .card{
+		width: calc(100% - 22px);
+	}
+}
